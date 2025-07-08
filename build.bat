@@ -1,0 +1,1 @@
+cl.exe win32_logger_test.c src/logger.c
