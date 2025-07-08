@@ -1,14 +1,25 @@
-C Logger without std libraries
+# CLogger - Zero-Std C Logger
 
-Okay so I had this idea of a full fledged logger, which has it's own low-level printing mechanism and uses NO stdlibc at ALL!!!
+A minimal, low-level logging utility written in **pure C** with **no standard library dependencies**. Designed for bare-metal environments, OS kernels, or projects that need complete control over I/O.
 
-HOW IT WORKS:
-	The only important function AS OF NOW is the "log" function (duh...), it has two arguments, the first one is the message to print, the second one is the log type (it can be either LOG_LEVEL_INFO (0), LOG_LEVEL_WARNING (1), LOG_LEVEL_ERROR (3))
+---
 
-DEFAULT COLORS:
-	GREEN for info
-	YELLOW for warning
-	RED for error
+## Features
 
-LICENSE: 
-	MIT
+- **No libc / stdlib dependencies** – works in environments where the standard C library is unavailable or undesirable.
+- **Custom low-level printing** – logs are output using your own low-level print mechanism (e.g., direct `syscall`, `write`, `putchar`, etc.).
+- **Three log levels**:
+  - `LOG_LEVEL_INFO` (0) – shown in **green**
+  - `LOG_LEVEL_WARNING` (1) – shown in **yellow**
+  - `LOG_LEVEL_ERROR` (2) – shown in **red**
+- **Lightweight and portable** – perfect for embedded or kernel-level projects.
+- **MIT Licensed** – free to use and modify.
+
+---
+
+## Usage
+
+```c
+log("System initialized.", LOG_LEVEL_INFO);
+log("Could not find config file, using defaults.", LOG_LEVEL_WARNING);
+log("Fatal error: device not responding.", LOG_LEVEL_ERROR);
