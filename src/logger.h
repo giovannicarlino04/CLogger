@@ -3,8 +3,6 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <stdarg.h>
-#include <stddef.h>
 
 typedef enum{
     LOG_TYPE_INFO = 0,
